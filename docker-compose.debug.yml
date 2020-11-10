@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  nodedockerapi:
+    image: nodedockerapi
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 9229:9229
+      - 3000:3000
+    command: ["node", "--inspect=0.0.0.0:9229", "./bin/www"]
